@@ -1358,6 +1358,7 @@ footer .credits a {
 --------------------------------------------------------------*/
 .search-cont{
   position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1463,3 +1464,11 @@ footer .credits a {
   background: #999;
   transform: rotate(315deg);
 }
+
+@media (max-width: 500px) {
+
+  .search1.active1{
+    width: 100%;
+  }
+}
+
