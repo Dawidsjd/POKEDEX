@@ -1469,6 +1469,12 @@ footer .credits a {
 
   .search1{
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .search1 .icon1{
+    display: none;
   }
 }
 
