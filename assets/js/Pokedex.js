@@ -59,6 +59,42 @@ function createPokemonCard(pokemon) {
 	pokemonEl.innerHTML = pokeInnerHTML;
 
 	poke_container.appendChild(pokemonEl);
+
+	search.addEventListener('keyup', ()=>{
+		
+		const searchReal1 = searchReal.value;
+		
+		if(name.indexOf(searchReal1) > -1){
+			pokemonEl.style.display = "block";
+
+		  }else{
+			  
+			  console.log(searchReal1);
+			pokemonEl.style.display = "none";
+
+		  }
+
+		  if(searchReal1 == ''){
+			pokemonEl.style.display = "block";
+			pokemonEl.style.position = "relative";
+			pokemonEl.style.top = "0";
+		  }
+	});
+
+	exitSearch.addEventListener('click', ()=>{
+		pokemonEl.style.display = "block";
+		pokemonEl.style.position = "relative";
+		pokemonEl.style.top = "0";
+	});
 }
 
 fetchPokemons();
+
+const icon = document.querySelector('.icon1');
+const search = document.querySelector('.search1');
+const searchReal = document.getElementById('mysearch');
+const exitSearch = document.querySelector('.clear');
+
+icon.addEventListener('click', ()=>{
+  search.classList.toggle('active1');
+});
