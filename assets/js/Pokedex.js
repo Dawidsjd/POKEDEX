@@ -1,6 +1,6 @@
 // "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/'+pokemon.id+'.gif"
 const poke_container = document.getElementById('poke_container');
-const pokemons_number = 150;
+const pokemons_number = 649;
 const colors = {
 	fire: '#FDDFDF',
 	grass: '#DEFDE0',
@@ -60,22 +60,31 @@ function createPokemonCard(pokemon) {
 
 	poke_container.appendChild(pokemonEl);
 
+
+
+	let genCount = document.getElementsByClassName('generation');
 	search.addEventListener('keyup', ()=>{
-		
+		MoreBTN.style.display = "none";
 		const searchReal1 = searchReal.value;
+		
 		
 		if(name.indexOf(searchReal1) > -1){
 			pokemonEl.style.display = "block";
 
 		  }else{
 			  
-			  console.log(searchReal1);
 			pokemonEl.style.display = "none";
+			for(let i = 0; i < genCount.length; i++){
+				genCount[i].style.display = "none";
+			}
 
 		  }
 
 		  if(searchReal1 == ''){
 			pokemonEl.style.display = "block";
+			for(let i = 0; i < genCount.length; i++){
+				genCount[i].style.display = "";
+			}
 			pokemonEl.style.position = "relative";
 			pokemonEl.style.top = "0";
 		  }
@@ -83,9 +92,81 @@ function createPokemonCard(pokemon) {
 
 	exitSearch.addEventListener('click', ()=>{
 		pokemonEl.style.display = "block";
+		for(let i = 0; i < genCount.length; i++){
+			genCount[i].style.display = "";
+		}
 		pokemonEl.style.position = "relative";
 		pokemonEl.style.top = "0";
 	});
+
+
+	let counts = poke_container.children;
+	console.log(counts.length);
+
+	//Przycik More
+	const MoreBTN = document.createElement('button');
+		MoreBTN.classList.add('more-Button');
+		const MoreINNERHTML = 'Show More <i class="bi bi-caret-down-fill"></i>';
+		MoreBTN.innerHTML = MoreINNERHTML;
+	if(counts.length == 19){
+		
+		poke_container.appendChild(MoreBTN);
+	}else if(counts.length > 19){
+		pokemonEl.classList.add('activeMore');
+		for(let i = 0; i < genCount.length; i++){
+			genCount[i].classList.add('activeMore');
+		}
+	}
+	
+	MoreBTN.addEventListener('click', () => {
+		for(let i = 20; i < counts.length; i++){
+			counts[i].classList.toggle('activeMore');
+			for(let j = 0; j < genCount.length; j++){
+				genCount[j].classList.toggle('countActive');
+			}
+		}
+		MoreBTN.classList.toggle('activeMore');
+	});
+
+	if(counts.length == 1){
+		const generationText = document.createElement('div');
+		generationText.classList.add('generation');
+		const genINNERHTML = '<p>GENERATION</p><br><p class="countGen">I</p>';
+		generationText.innerHTML = genINNERHTML;
+		poke_container.insertBefore(generationText, counts[0]);
+	}else if(counts.length == 151 + 1){
+		generationText = document.createElement('div');
+		generationText.classList.add('generation');
+		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">II</p>';
+		generationText.innerHTML = genINNERHTML;
+		poke_container.appendChild(generationText);
+	}else if(counts.length == 251 + 2){
+		generationText = document.createElement('div');
+		generationText.classList.add('generation');
+		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">III</p>';
+		generationText.innerHTML = genINNERHTML;
+		poke_container.appendChild(generationText);
+	}else if(counts.length == 386 + 3){
+		generationText = document.createElement('div');
+		generationText.classList.add('generation');
+		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">IV</p>';
+		generationText.innerHTML = genINNERHTML;
+		poke_container.appendChild(generationText);
+	}
+	else if(counts.length == 493 + 4){
+		generationText = document.createElement('div');
+		generationText.classList.add('generation');
+		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">V</p>';
+		generationText.innerHTML = genINNERHTML;
+		poke_container.appendChild(generationText);
+	}
+	else if(counts.length == 251 + 2){
+		generationText = document.createElement('div');
+		generationText.classList.add('generation');
+		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">III</p>';
+		generationText.innerHTML = genINNERHTML;
+		poke_container.appendChild(generationText);
+	}
 }
 
 fetchPokemons();

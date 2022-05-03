@@ -6,6 +6,7 @@
 }
 
 .poke-container {
+	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: space-between;
@@ -64,4 +65,76 @@
 	margin: 15px 0 7px;
 	letter-spacing: 1px;
     color: #fff;
+}
+
+.generation{
+	position: relative;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	letter-spacing: 4px;
+	font-weight: bold;
+	margin-top: 40px;
+}
+p{
+	position: relative;
+}
+
+.generation p:nth-child(1):before{
+	content: '';
+	position: absolute;
+	top: 43%;
+	left: -60px;
+	width: 40px;
+	height: 5px;
+	border-radius: 5px;
+	background: #999;
+}
+
+.generation p:nth-child(1)::after{
+	content: '';
+	position: absolute;
+	top: 43%;
+	right: -60px;
+	width: 40px;
+	height: 5px;
+	border-radius: 5px;
+	background: #999;
+}
+
+.countGen{
+	margin-top: -40px;
+}
+
+.more-Button{
+	margin-top: 40px;
+	border: none;
+	padding: 10px 20px;
+	background: none;
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff;
+	transition: 0.3s;
+	
+}
+
+.more-Button:hover{
+	text-shadow: 0 3px 10px rgb(0, 0, 0);
+	letter-spacing: 1px;
+}
+
+.more-Button i{
+	padding-left: 10px;
+}
+
+.activeMore{
+	display: none;
+	transition: 0.5s;
+}
+
+.countActive{
+	display: "";
 }

@@ -1465,12 +1465,16 @@ footer .credits a {
   transform: rotate(315deg);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1100px) {
 
   .search1{
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+
+  .clear{
+    right: 25px;
   }
 
   .search1 .icon1{
