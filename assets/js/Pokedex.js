@@ -111,6 +111,7 @@ function createPokemonCard(pokemon) {
 	if(counts.length == 19){
 		
 		poke_container.appendChild(MoreBTN);
+		
 	}else if(counts.length > 19){
 		pokemonEl.classList.add('activeMore');
 		for(let i = 0; i < genCount.length; i++){
@@ -122,7 +123,7 @@ function createPokemonCard(pokemon) {
 		for(let i = 20; i < counts.length; i++){
 			counts[i].classList.toggle('activeMore');
 			for(let j = 0; j < genCount.length; j++){
-				genCount[j].classList.toggle('countActive');
+				genCount[j].classList.remove('activeMore');
 			}
 		}
 		MoreBTN.classList.toggle('activeMore');
@@ -134,6 +135,7 @@ function createPokemonCard(pokemon) {
 		const genINNERHTML = '<p>GENERATION</p><br><p class="countGen">I</p>';
 		generationText.innerHTML = genINNERHTML;
 		poke_container.insertBefore(generationText, counts[0]);
+		console.log("siuuuu")
 	}else if(counts.length == 151 + 1){
 		generationText = document.createElement('div');
 		generationText.classList.add('generation');
