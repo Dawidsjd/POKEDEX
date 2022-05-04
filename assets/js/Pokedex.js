@@ -136,36 +136,29 @@ function createPokemonCard(pokemon) {
 		generationText.innerHTML = genINNERHTML;
 		poke_container.insertBefore(generationText, counts[0]);
 		console.log("siuuuu")
-	}else if(counts.length == 151 + 1){
+	}else if(counts.length == 151 + 2){
 		generationText = document.createElement('div');
 		generationText.classList.add('generation');
 		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">II</p>';
 		generationText.innerHTML = genINNERHTML;
 		poke_container.appendChild(generationText);
-	}else if(counts.length == 251 + 2){
+	}else if(counts.length == 251 + 3){
 		generationText = document.createElement('div');
 		generationText.classList.add('generation');
 		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">III</p>';
 		generationText.innerHTML = genINNERHTML;
 		poke_container.appendChild(generationText);
-	}else if(counts.length == 386 + 3){
+	}else if(counts.length == 386 + 4){
 		generationText = document.createElement('div');
 		generationText.classList.add('generation');
 		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">IV</p>';
 		generationText.innerHTML = genINNERHTML;
 		poke_container.appendChild(generationText);
 	}
-	else if(counts.length == 493 + 4){
+	else if(counts.length == 493 + 5){
 		generationText = document.createElement('div');
 		generationText.classList.add('generation');
 		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">V</p>';
-		generationText.innerHTML = genINNERHTML;
-		poke_container.appendChild(generationText);
-	}
-	else if(counts.length == 251 + 2){
-		generationText = document.createElement('div');
-		generationText.classList.add('generation');
-		genINNERHTML = '<p>GENERATION</p><br><p class="countGen">III</p>';
 		generationText.innerHTML = genINNERHTML;
 		poke_container.appendChild(generationText);
 	}
